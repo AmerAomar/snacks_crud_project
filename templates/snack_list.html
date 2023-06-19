@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snacks</title>
+</head>
+<body>
+  <!-- this is teplate for django project -->
+
+  <h2>snacks list</h2>
+  <h3 style="text-align: center; text-decoration: underline; color: rgb(11, 193, 193);">Total Snacks: {{ snacks|length }}</h3>
+  <a href="{% url 'snack_create' %}" style="color: dodgerblue; text-decoration: none; font-size: 16px;">Add New Snack</a>
+  <hr>
+  {% for snack in snacks %}
+  <h3>Snack Name: <a href="{% url 'snack_detail' snack.pk %}">{{snack.title}}</a></h3>
+  <a href="{% url 'snack_update' snack.pk %}" style="color: rgb(71, 234, 26); text-decoration: none; font-size: 16px; margin-right: 20px;">Update the snack</a>
+  <a href="{% url 'snack_delete' snack.pk %}" style="color: rgb(255, 49, 30); text-decoration: none; font-size: 16px;">Delete the snack</a>
+  <hr>
+  
+  {%endfor%}
+  
+    
+</body>
+</html>

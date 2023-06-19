@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Snack</title>
+</head>
+<body>
+    <h2>Delete Snack</h2>
+    <hr>
+    <p>Are you sure you want to delete the snack "{{ snack.title }}"?</p>
+    
+    <form action="{% url 'snack_delete' snack.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" style="color: red;">Confirm Delete</button>
+    </form>
+    
+    <hr>
+    <a href="{% url 'snack_list' %}" style="color: dodgerblue; text-decoration: none; font-size: 16px;">Back to Snacks List</a>
+</body>
+</html>
